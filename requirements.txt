@@ -1,0 +1,4 @@
+pillow 
+luma.oled
+opencv-python
+
