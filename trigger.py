@@ -22,5 +22,6 @@ def on_button_press():
     run_process()
 
 btn = Button(17, pull_up=True)
+print("Ready to press")
 btn.when_pressed = on_button_press
 pause()
