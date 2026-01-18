@@ -10,12 +10,16 @@ serial = i2c(port=1, address=0x3C)
 device = ssd1309(serial, width=128, height=64)
 
 idle = Animation(load_gif("faceAnimation/assets/idle.gif"), loop=True)
-no = Animation(load_gif("faceAnimation/assets/no.gif"), loop=True)
+thinking = Animation(load_gif("faceAnimation/assets/thinking.gif"), loop=True)
+grabage = Animation(load_gif("faceAnimation/assets/grabage.gif"), loop=False)
+recycle = Animation(load_gif("faceAnimation/assets/recycle.gif"), loop=False)
 
 animator = Animator(
     {
         "idle": idle,
-        "no": no
+        "thinking": thinking,
+        "grabage": grabage,
+        "recycle": recycle
     },
     default="idle"
 )

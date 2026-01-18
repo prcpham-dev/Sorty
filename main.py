@@ -13,12 +13,16 @@ device = ssd1309(serial, width=128, height=64)
 
 # Animations
 idle = Animation(load_gif("faceAnimation/assets/idle.gif"), loop=True)
-no = Animation(load_gif("faceAnimation/assets/no.gif"), loop=True)
+thinking = Animation(load_gif("faceAnimation/assets/thinking.gif"), loop=True)
+grabage = Animation(load_gif("faceAnimation/assets/grabage.gif"), loop=False)
+recycle = Animation(load_gif("faceAnimation/assets/recycle.gif"), loop=False)
 
 animator = Animator(
     {
         "idle": idle,
-        "no": no
+        "thinking": thinking,
+        "grabage": grabage,
+        "recycle": recycle
     },
     default="idle"
 )
@@ -28,7 +32,7 @@ btn = Button(17, pull_up=True)
 
 def run_process_and_animate():
     print("Button pressed")
-    animator.switch("no")
+    animator.switch("thinking")
     # Run capture and upload in a separate thread
     def process():
         print("Run capture")
@@ -40,6 +44,10 @@ def run_process_and_animate():
         # Switch back to idle only after process is complete
         animator.switch("idle")
     threading.Thread(target=process, daemon=True).start()
+
+    def switch(response):
+        animator.switch(response)
+        time.sleep(3)
 
 btn.when_pressed = run_process_and_animate
 
