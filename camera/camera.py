@@ -4,10 +4,10 @@ import subprocess
 from google import genai
 from google.genai import types
 
-def capture(filename, filepath, width=800, height=600) -> str:
+def capture(filepath, width=800, height=600) -> str:
     # Generate a filename based on the current timestamp
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    filename = f"image_{timestamp}.jpg" if filename != "" else filename
+    filename = f"image_{timestamp}.jpg"
     filepath = os.path.join(os.getcwd(), filename) if filepath != "" else filepath
 
     # Build the rpicam command
