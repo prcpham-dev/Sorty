@@ -19,25 +19,31 @@ animator = Animator(
     default="idle"
 )
 
-# Run start_listener in a background thread to avoid blocking GPIO events
-threading.Thread(target=start_listener, daemon=True).start()
+start_listener()
 
 FPS = 25
 FRAME_DELAY = 1 / FPS
 last_frame = None
 
-while True:
-    while not events.empty():
-        animator.switch(events.get_nowait())
+def animation_loop():
+    global last_frame
+    while True:
+        while not events.empty():
+            animator.switch(events.get_nowait())
 
-    while not responses.empty():
-        response = responses.get_nowait()
-        print("Response:", response)
+        while not responses.empty():
+            response = responses.get_nowait()
+            print("Response:", response)
 
-    frame = animator.update()
+        frame = animator.update()
 
-    if frame is not last_frame:
-        device.display(frame)
-        last_frame = frame
+        if frame is not last_frame:
+            device.display(frame)
+            last_frame = frame
 
-    time.sleep(FRAME_DELAY)
+        time.sleep(FRAME_DELAY)
+
+threading.Thread(target=animation_loop, daemon=True).start()
+
+from signal import pause
+pause()
