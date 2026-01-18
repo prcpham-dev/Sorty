@@ -42,15 +42,39 @@ class Animator:
         self.current = animations[default]
         self.current_name = default
 
-    def switch(self, name):
+        self.pending = None
+
+    def _switch_now(self, name):
         self.current_name = name
         self.current = self.animations[name]
         self.current.reset()
 
+    def switch(self, name, force=False):
+        """
+        force=False:
+          - if current.loop is True -> switch immediately
+          - if current.loop is False -> queue it (play after current finishes)
+        force=True:
+          - always switch immediately
+        """
+        if force or self.current.loop:
+            self.pending = None
+            self._switch_now(name)
+        else:
+            self.pending = name
+
     def update(self):
         frame = self.current.next_frame()
+
+        # only happens when current.loop == False and it finished
         if frame is None:
-            self.switch(self.default)
+            if self.pending is not None:
+                next_name = self.pending
+                self.pending = None
+                self._switch_now(next_name)
+            else:
+                self._switch_now(self.default)
+
             frame = self.current.next_frame()
+
         return frame
-    
