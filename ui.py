@@ -19,10 +19,7 @@ animator = Animator(
     default="idle"
 )
 
-threading.Thread(
-    target=start_listener,
-    daemon=True
-).start()
+start_listener()
 
 FPS = 25
 FRAME_DELAY = 1 / FPS
@@ -34,7 +31,7 @@ while True:
 
     while not responses.empty():
         response = responses.get_nowait()
-        print(response)
+        print("Response:", response)
 
     frame = animator.update()
 
