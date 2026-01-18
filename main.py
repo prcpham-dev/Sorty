@@ -40,7 +40,7 @@ animator = Animator(
 )
 
 def apply_response(resp):
-    text = resp or ""
+    text = resp.lower()
     if re.search(r"\brecycle\b", text, re.I):
         animator.switch("transition_recycle", force=True)
         animator.switch("recycle")
@@ -67,7 +67,7 @@ btn = Button(17, pull_up=True)
 def run_process_and_animate():
     print("Button pressed")
     animator.switch("thinking")
-    # Run capture and upload in a separate thread
+    resp = "EROOR"
     def process():
         print("Run capture")
         result = capture("./data")
@@ -77,7 +77,7 @@ def run_process_and_animate():
             resp = upload_image_to_gemini(result, PROMPT, GOOGLE_API_KEY)
         apply_response(resp)
         animator.switch("idle")
-        
+
     threading.Thread(target=process, daemon=True).start()
 
 
