@@ -1,4 +1,4 @@
 pillow 
 luma.oled
 opencv-python
-
+RPi.GPIO

@@ -26,8 +26,8 @@ threading.Thread(
 ).start()
 
 
-FPS = 20
-FRAME_DELAY = 0.0005
+FPS = 25
+FRAME_DELAY = 1 / FPS
 
 while True:
     while not events.empty():
