@@ -15,10 +15,11 @@ Analyze the image and identify which bin the item should go to.
 
 Assign exactly ONE bin from the following list:
   - recycle
-  - garbage
+  - trash
   - paper
   - compost
-In case of multiple items (a paper box with plastic lids), just assign "garbage"
+In case of multiple items (a paper box with plastic lids), just assign "trash"
+In case of multiple objects detected, analyze the object in the foreground only.
 
 Rules:
 - Do NOT explain your reasoning.
@@ -99,6 +100,7 @@ def run_process_and_animate():
         print(result)
         if result:
             resp = upload_image_to_gemini(result, PROMPT, GOOGLE_API_KEY)
+            print(resp)
         apply_response(resp)
         animator.switch("idle")
 

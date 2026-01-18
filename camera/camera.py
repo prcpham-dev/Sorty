@@ -33,6 +33,7 @@ def capture(filepath, width=800, height=600) -> str:
         return None
 
 def upload_image_to_gemini(image_path, prompt, api_key) -> str:
+    print(f"Uploading image {image_path} to Gemini")
     with open(image_path, 'rb') as f:
         image_bytes = f.read()
 
