@@ -32,7 +32,7 @@ def capture(filepath, width=800, height=600) -> str:
         print(f"Failed to capture image: {e}")
         return None
 
-def upload_image_to_gemini(image_path, prompt, api_key):
+def upload_image_to_gemini(image_path, prompt, api_key) -> str:
     with open(image_path, 'rb') as f:
         image_bytes = f.read()
 
@@ -48,4 +48,4 @@ def upload_image_to_gemini(image_path, prompt, api_key):
         ]
     )
 
-    print(response.text)
+    return response.text
