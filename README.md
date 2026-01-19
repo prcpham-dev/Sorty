@@ -1,5 +1,12 @@
-## Devpost
-Project page: https://devpost.com/software/sorty-25gdrx?ref_content=my-projects-tab&ref_feature=my_projects
+## Sorty
+![Sorty (Product)](ReadmeAssets/Product.jpeg)
+Project page: [Sorty on Devpost](https://devpost.com/software/sorty-25gdrx?ref_content=my-projects-tab&ref_feature=my_projects)
+
+## Demo
+Demo video: [YouTube Demo](https://www.youtube.com/watch?v=6I_pTN3uTkg)
+
+![Idle animation](faceAnimation/assets/idle.gif)
+
 ## Inspiration
 As international students, we found trash sorting completely unfamiliar when we first arrived in Canada. Standing in front of multiple bins with a half-finished drink or a food container, we often found ourselves confused. Is this plastic? Compost? Or just waste? That moment of hesitation happened almost every day.
 
@@ -13,7 +20,11 @@ This hackathon pushed us far outside our comfort zone. For one of us, this was h
 
 We spent much of our time learning how to wire components, debug drivers, search through scattered documentation, and watch YouTube tutorials. We also learned how to solder for the first time, which caused more problems than we expected. What we initially thought were wiring mistakes turned out to be soldering issues, forcing us to redo parts of the build while racing against time.
 
+![First time soldering](ReadmeAssets/First_time_solder.jpeg)
+
 With limited resources, we had to improvise constantly. When we ran out of tape, we used stickers. When the button did not fit properly, we placed a stone inside the enclosure to fill the gap. These improvised solutions were not elegant, but they worked.
+
+![Hardware](ReadmeAssets/Hardware.jpeg)
 
 On the software side, we ran into compatibility issues where Python libraries required sudo, but sudo and our virtual environment were using different Python versions. This caused unexpected failures with the button and other libraries and took significant time to diagnose and fix.
 
