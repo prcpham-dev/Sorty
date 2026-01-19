@@ -1,3 +1,5 @@
+## Devpost
+Project page: https://devpost.com/software/sorty-25gdrx?ref_content=my-projects-tab&ref_feature=my_projects
 ## Inspiration
 As international students, we found trash sorting completely unfamiliar when we first arrived in Canada. Standing in front of multiple bins with a half-finished drink or a food container, we often found ourselves confused. Is this plastic? Compost? Or just waste? That moment of hesitation happened almost every day.
 
